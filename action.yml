@@ -1,4 +1,7 @@
 name: api-testing Demo
 runs:
   steps:
-    - run: echo "api-testing"
+    - name: api-testing
+      shell: bash
+      run: |
+        echo "api-testing"
