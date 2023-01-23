@@ -2,6 +2,8 @@ name: api-testing Demo
 runs:
   using: composite
   steps:
+    - name: checkout
+      uses: actions/checkout@v3
     - name: api-testing
       shell: bash
       run: |
