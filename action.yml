@@ -1,8 +1,4 @@
-name: GitHub Actions Demo
-run-name: is testing out GitHub Actions 🚀
-on: [push]
-jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "🎉 The job was automatically triggered by a event."
+name: api-testing Demo
+runs:
+  steps:
+    - run: echo "api-testing"
