@@ -4,7 +4,7 @@ runs:
   steps:
     - name: checkout
       uses: actions/checkout@v3
-    - name: api-testing
+    - name: run-test
       shell: bash
       run: |
-        echo "api-testing"
+        java -jar ./test.jar hello
