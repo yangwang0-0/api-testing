@@ -1,5 +1,6 @@
 name: api-testing Demo
 runs:
+  using: composite
   steps:
     - name: api-testing
       shell: bash
