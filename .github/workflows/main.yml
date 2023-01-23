@@ -8,4 +8,4 @@ jobs:
       uses: wei/wget@v1
       with:
         args: -qO- https://nexus.eng.aetion.com/repository/aetion-snapshots/com/aetion/aep/aep-test-automation-test-functional/1.1.1-SNAPSHOT/aep-test-automation-test-functional-1.1.1-20230123.161331-5.jar
-    - run: java -jar -Denvironment=ECS_CI -Dclient=CI  aep-test-automation-test-functional-1.1.1-20230123.161331-5.jar classpath:features/component/client/projects/FoldersControllerTest.feature 
+    - run: java -jar -Denvironment=ECS_CI -Dclient=CI  aep-test-automation-test-functional-1.1.1-20230123.161331-5.jar classpath:FoldersControllerTest.feature 
