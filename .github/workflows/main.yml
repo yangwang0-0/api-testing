@@ -31,5 +31,4 @@ jobs:
     name: Aetion Test Automation (aep-test-automation)
     steps:
       - name: Run tests with class name and tags
-        if: ${{ inputs.server }} == ''
-        run: echo "condition 1"
+        run: echo ${{ input.server }}
