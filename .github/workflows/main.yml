@@ -17,10 +17,10 @@ on:
         description: Select the server to run the integration tests.
         required: false
         options:
-          - 'N/A'
-          - 'explorations'
-          - 'gateway'
-          - 'list'
+          - N/A
+          - explorations
+          - gateway
+          - list
       tags:
         type: string
         description: Select the tags, format:t1|t2|t3
@@ -31,7 +31,6 @@ jobs:
     name: Aetion Test Automation (aep-test-automation)
     steps:
       - name: Run tests with class name and tags
-        if: ${{ inputs.server }} != 'N/A'
+        if: ${{ inputs.tags }} != ''
         run: | 
-          echo ${{ inputs.server }}
-          echo ${{ inputs.server.options.N/A }}
+          echo ${{ inputs.tags }}
