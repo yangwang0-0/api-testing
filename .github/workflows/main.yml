@@ -34,8 +34,7 @@ jobs:
       - name: Run tests with class name and tags
         if: ${{ inputs.server != '' && inputs.tags != '' }}
         run: | 
-          echo ${{ inputs.server }}
-          echo ${{ inputs.tags }}
+          java -jar Playground-1.0-SNAPSHOT.jar abc
       
       - name: Run tests with class name
         if: ${{ inputs.server != '' && inputs.tags == '' }}
