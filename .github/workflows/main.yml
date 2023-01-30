@@ -31,4 +31,4 @@ jobs:
     name: Aetion Test Automation (aep-test-automation)
     steps:
       - name: Run tests with class name and tags
-        run: echo ${{ input.server }}
+        run: echo ${{ inputs.server }}
