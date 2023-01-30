@@ -29,15 +29,22 @@ jobs:
   run-tests:
     runs-on: ubuntu-latest
     name: Aetion Test Automation (aep-test-automation)
-    if: ${{ inputs.server != '' && inputs.tags != '' }}
+    if: ${{ inputs.server != '' || inputs.tags != '' }}
     steps:
       - name: Run tests with class name and tags
+        if: ${{ inputs.server != '' && inputs.tags != '' }}
         run: | 
           echo ${{ inputs.server }}
           echo ${{ inputs.tags }}
-      - name: Step 2
+      
+      - name: Run tests with class name
+        if: ${{ inputs.server != '' && inputs.tags == '' }}
         run: | 
-          echo setp2
-      - name: Step 3
-        run: |
-          echo step3
+          echo ${{ inputs.server }}
+          echo ${{ inputs.tags }}
+          
+      - name: Run tests with tags
+        if: ${{ inputs.server == '' && inputs.tags != '' }}
+        run: | 
+          echo ${{ inputs.server }}
+          echo ${{ inputs.tags }}
