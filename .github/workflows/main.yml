@@ -15,6 +15,7 @@ on:
       server:
         type: choice
         description: Select the server to run the integration tests.
+        required: false
         options:
           - explorations
           - gateway
