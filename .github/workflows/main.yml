@@ -31,6 +31,8 @@ jobs:
     name: Aetion Test Automation (aep-test-automation)
     if: ${{ inputs.server != '' || inputs.tags != '' }}
     steps:
+      - name: checkout
+        uses: actions/checkout@v3
       - name: Run tests with class name and tags
         if: ${{ inputs.server != '' && inputs.tags != '' }}
         run: | 
