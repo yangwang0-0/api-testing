@@ -1,11 +1,33 @@
 name: GitHub Actions Demo
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Select the version for the testing jar to be pulled from. Will pull the latest snapshot.
+        required: false
+        default: "1.1.1-SNAPSHOT"
+      environment:
+        type: choice
+        description: Select the environment to run tests in.
+        options:
+          - ci
+          - qa
+      server:
+        type: choice
+        description: Select the server to run the integration tests.
+        options:
+          - explorations
+          - gateway
+          - list
+      tags:
+        type: string
+        description: Select the tags, format:t1|t2|t3
+
 jobs:
-  main:
+  run-tests:
     runs-on: ubuntu-latest
+    name: Aetion Test Automation (aep-test-automation)
     steps:
-    - name: wget
-      uses: wei/wget@v1
-      with:
-        args: -qO- https://nexus.eng.aetion.com/repository/aetion-snapshots/com/aetion/aep/aep-test-automation-test-functional/1.1.1-SNAPSHOT/aep-test-automation-test-functional-1.1.1-20230123.161331-5.jar
-    - run: java -jar -Denvironment=ECS_CI -Dclient=CI  aep-test-automation-test-functional-1.1.1-20230123.161331-5.jar classpath:FoldersControllerTest.feature 
+      - name: Run tests with class name and tags
+        if: ${{ inputs.server }} == ''
+        run: echo "condition 1"
